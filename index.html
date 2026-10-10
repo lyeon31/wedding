@@ -3,11 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-<title>Our Wedding Day</title>
-<meta name="description" content="강민설 · 김유연 결혼합니다. 2026년 12월 27일 일요일 낮 12시, 아젠토 피오레 컨벤션">
-<meta property="og:title" content="Minseol & Yuyeon — Our Wedding Day">
+<title>민설 ♥ 유연 결혼합니다</title>
+<meta name="description" content="2026년 12월 27일 일요일 낮 12시 · 제주 아젠토 피오레 컨벤션">
+<!-- 링크 미리보기 카드 (카카오톡·문자·SNS) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lyeon31.github.io/wedding/">
+<meta property="og:site_name" content="Our Wedding Day">
+<meta property="og:title" content="민설 ♥ 유연 결혼합니다">
 <meta property="og:description" content="2026년 12월 27일 일요일 낮 12시 · 제주 아젠토 피오레 컨벤션">
-<meta property="og:image" content="images/main.jpeg">
+<meta property="og:image" content="https://lyeon31.github.io/wedding/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="민설과 유연의 웨딩 사진">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="민설 ♥ 유연 결혼합니다">
+<meta name="twitter:description" content="2026년 12월 27일 일요일 낮 12시 · 제주 아젠토 피오레 컨벤션">
+<meta name="twitter:image" content="https://lyeon31.github.io/wedding/images/og.jpg">
+<link rel="icon" href="images/icon.png">
+<link rel="apple-touch-icon" href="images/icon.png">
 <meta name="theme-color" content="#396651">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -596,9 +610,10 @@
 
   // 링크 공유
   document.getElementById('share').addEventListener('click', async () => {
-    const data = { title: '민설 ♥ 유연 결혼합니다', text: '2026년 12월 27일 일요일 낮 12시, 아젠토 피오레 컨벤션', url: location.href };
-    if (navigator.share) { try { await navigator.share(data); } catch {} }
-    else { await copyText(location.href); showToast('링크가 복사되었습니다'); }
+    const url = location.origin + location.pathname;
+    const text = '민설 ♥ 유연 결혼합니다\n\n2026년 12월 27일 일요일 낮 12시\n제주 아젠토 피오레 컨벤션\n\n저희의 새로운 시작을 함께 축복해 주세요.';
+    if (navigator.share) { try { await navigator.share({ title: '민설 ♥ 유연 결혼합니다', text, url }); } catch {} }
+    else { await copyText(text + '\n\n' + url); showToast('초대 문구와 링크가 복사되었습니다'); }
   });
 
   // 사진 더보기
